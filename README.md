@@ -1,5 +1,5 @@
+![AIcrowd](https://s3.eu-central-1.amazonaws.com/aicrowd-static/misc/AIcrowd-flat.png)
 # snake-species-identification-challenge-starter-kit
-![AIcrowd-Logo](https://github.com/AIcrowd/AIcrowd/blob/master/app/assets/images/misc/aicrowd-horizontal.png)
 
 This is a starter kit for the [Snakes Species Identification Challenge](https://www.aicrowd.com/challenges/snake-species-identification-challenge) on 
 [AIcrowd](https://www.aicrowd.com).
@@ -101,7 +101,7 @@ To submit to the challenge you'll need to ensure you've set up an appropriate re
 
 ### Repository Structure
 
-We have created a sample submission repository which you can use as reference. You can find it [here](https://gitlab.aicrowd.com/aicrowd-bot/snakes_challenge_sample_submission)
+We have created this sample submission repository which you can use as reference.
 
 #### aicrowd.json
 Each repository should have a aicrowd.json file with the following fields:
@@ -141,7 +141,9 @@ If you do not have SSH Keys, you will first need to [generate one](https://docs.
 Then you can create a submission by making a *tag push* to your repository, adding the correct git remote and pushing to the remote:
 
 ```
+git clone https://github.com/AIcrowd/snake-species-identification-challenge-starter-kit snake-species-identification-challenge
 cd snake-species-identification-challenge
+
 # Add AICrowd git remote endpoint
 git remote add aicrowd git@gitlab.aicrowd.com:<YOUR_AICROWD_USER_NAME>/snake-species-identification-challenge.git
 git push aicrowd master
@@ -160,4 +162,4 @@ You now should be able to see the details of your submission at :
 **Best of Luck**
 
 # Author
-Mridul Nagpal <mnagpal@aicrowd.com>
+Shivam Khandelwal (shivam@aicrowd.com)
