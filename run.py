@@ -27,7 +27,7 @@ def gather_images(test_images_path):
     images = glob.glob(os.path.join(
         test_images_path, "*.jpg"
     ))
-    print("a")
+    print("b")
     return images
 
 def gather_image_names(test_images_path):
