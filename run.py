@@ -20,6 +20,8 @@ Expected ENVIRONMENT Variables
 * AICROWD_TEST_IMAGES_PATH : abs path to  folder containing all the test images
 * AICROWD_PREDICTIONS_OUTPUT_PATH : path where you are supposed to write the output predictions.csv
 """
+AICROWD_TEST_IMAGES_PATH = os.setenv('AICROWD_TEST_IMAGES_PATH', 'data/round1')
+AICROWD_PREDICTIONS_OUTPUT_PATH = os.setenv('AICROWD_PREDICTIONS_OUTPUT_PATH', 'random_prediction.csv')
 
 def gather_images(test_images_path):
     images = glob.glob(os.path.join(
@@ -56,6 +58,7 @@ def get_snake_classes():
 
 
 def run():
+	print("ouaich")
     ########################################################################
     # Register Prediction Start
     ########################################################################
@@ -74,6 +77,10 @@ def run():
     ########################################################################
     # Do your magic here to train the model
     ########################################################################
+	
+	for folder in os.listdir(AICROWD_TEST_IMAGES_PATH):
+		print(folder)
+		
     classes = get_snake_classes()
 
     def softmax(x):
