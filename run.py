@@ -76,8 +76,8 @@ def run():
     # Do your magic here to train the model
     ########################################################################
 	
-	for folder in os.listdir(AICROWD_TEST_IMAGES_PATH):
-		print(folder)
+	#for folder in os.listdir(AICROWD_TEST_IMAGES_PATH):
+		#print(folder)
 		
     classes = get_snake_classes()
     print(h)
