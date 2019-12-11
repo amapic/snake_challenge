@@ -27,8 +27,6 @@ def gather_images(test_images_path):
     images = glob.glob(os.path.join(
         test_images_path, "*.jpg"
     ))
-    print("b")
-    print("c")
     return images
 
 def gather_image_names(test_images_path):
@@ -59,7 +57,6 @@ def get_snake_classes():
 
 
 def run():
-	print("ouaich")
     ########################################################################
     # Register Prediction Start
     ########################################################################
