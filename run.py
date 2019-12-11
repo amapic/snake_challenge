@@ -80,7 +80,7 @@ def run():
 		#print(folder)
 		
     classes = get_snake_classes()
-    print(h)
+    
     def softmax(x):
         """Compute softmax values for each sets of scores in x."""
         e_x = np.exp(x - np.max(x))
@@ -130,5 +130,5 @@ if __name__ == "__main__":
         run()
     except Exception as e:
         error = traceback.format_exc()
-        print(error)
+        print(error + "prout")
         aicrowd_helpers.execution_error(error)
