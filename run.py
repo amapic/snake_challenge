@@ -28,6 +28,7 @@ def gather_images(test_images_path):
         test_images_path, "*.jpg"
     ))
     print("b")
+    print("a")
     return images
 
 def gather_image_names(test_images_path):
