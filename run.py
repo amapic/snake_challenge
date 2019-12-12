@@ -130,5 +130,5 @@ if __name__ == "__main__":
         run()
     except Exception as e:
         error = traceback.format_exc()
-        print(error + "prout")
+        print(error + "prout2")
         aicrowd_helpers.execution_error(error)
