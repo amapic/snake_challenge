@@ -22,8 +22,8 @@ Expected ENVIRONMENT Variables
 """
 #os.environ['AICROWD_TEST_IMAGES_PATH'] = 'data/round1'
 #os.environ['AICROWD_PREDICTIONS_OUTPUT_PATH'] = 'random_prediction.csv'
-AICROWD_TEST_IMAGES_PATH = os.setenv('AICROWD_TEST_IMAGES_PATH', 'data/round1')
-AICROWD_PREDICTIONS_OUTPUT_PATH = os.setenv('AICROWD_PREDICTIONS_OUTPUT_PATH', 'random_prediction.csv')
+#AICROWD_TEST_IMAGES_PATH = os.setenv('AICROWD_TEST_IMAGES_PATH', 'data/round1')
+#AICROWD_PREDICTIONS_OUTPUT_PATH = os.setenv('AICROWD_PREDICTIONS_OUTPUT_PATH', 'random_prediction.csv')
 
 def gather_images(test_images_path):
     images = glob.glob(os.path.join(
