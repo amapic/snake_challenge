@@ -3,6 +3,6 @@
     "grader_id": "snake-species-identification-challenge",
     "authors" : ["amapic"],
     "description" : "Snakes Random Agent",
-    "gpu" : true,
-    "debug" : true
+    "gpu" :true,
+    "debug" :true
 }
