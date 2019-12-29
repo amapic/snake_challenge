@@ -20,8 +20,7 @@ Expected ENVIRONMENT Variables
 * AICROWD_TEST_IMAGES_PATH : abs path to  folder containing all the test images
 * AICROWD_PREDICTIONS_OUTPUT_PATH : path where you are supposed to write the output predictions.csv
 """
-#os.environ['AICROWD_TEST_IMAGES_PATH'] = 'data/round1'
-#os.environ['AICROWD_PREDICTIONS_OUTPUT_PATH'] = 'random_prediction.csv'
+
 AICROWD_TEST_IMAGES_PATH = os.setenv('AICROWD_TEST_IMAGES_PATH', 'data/round1')
 AICROWD_PREDICTIONS_OUTPUT_PATH = os.setenv('AICROWD_PREDICTIONS_OUTPUT_PATH', 'random_prediction.csv')
 
