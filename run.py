@@ -23,6 +23,7 @@ Expected ENVIRONMENT Variables
 
 AICROWD_TEST_IMAGES_PATH = os.getenv('AICROWD_TEST_IMAGES_PATH', 'data/round1')
 AICROWD_PREDICTIONS_OUTPUT_PATH = os.getenv('AICROWD_PREDICTIONS_OUTPUT_PATH', 'random_prediction.csv')
+aicrowd_helpers.execution_error("ee")
 
 def gather_images(test_images_path):
     images = glob.glob(os.path.join(
