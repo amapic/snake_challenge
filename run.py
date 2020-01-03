@@ -23,7 +23,7 @@ Expected ENVIRONMENT Variables
 
 AICROWD_TEST_IMAGES_PATH = os.getenv('AICROWD_TEST_IMAGES_PATH', 'data/round1')
 AICROWD_PREDICTIONS_OUTPUT_PATH = os.getenv('AICROWD_PREDICTIONS_OUTPUT_PATH', 'random_prediction.csv')
-aicrowd_helpers.execution_error("ee")
+#aicrowd_helpers.execution_error("ee")
 
 def gather_images(test_images_path):
     images = glob.glob(os.path.join(
@@ -62,17 +62,17 @@ def run():
     ########################################################################
     # Register Prediction Start
     ########################################################################
-    aicrowd_helpers.execution_start()
+    #aicrowd_helpers.execution_start()
 
     ########################################################################
     # Gather Input and Output paths from environment variables
     ########################################################################
-    test_images_path, predictions_output_path = gather_input_output_path()
+    #test_images_path, predictions_output_path = gather_input_output_path()
 
     ########################################################################
     # Gather Image Names
     ########################################################################
-    image_names = gather_image_names(test_images_path)
+    #image_names = gather_image_names(test_images_path)
 
     ########################################################################
     # Do your magic here to train the model
@@ -81,50 +81,47 @@ def run():
 	#for folder in os.listdir(AICROWD_TEST_IMAGES_PATH):
 		#print(folder)
 		
-    classes = get_snake_classes()
+    import numpy as np
+    import os
+    import glob
+    
+    AICROWD_TEST_IMAGES_PATH = os.getenv('AICROWD_TEST_IMAGES_PATH', 'data/round1')
+    AICROWD_PREDICTIONS_OUTPUT_PATH = os.getenv('AICROWD_PREDICTIONS_OUTPUT_PATH', 'random_prediction.csv')
     
     def softmax(x):
         """Compute softmax values for each sets of scores in x."""
         e_x = np.exp(x - np.max(x))
-        return e_x / e_x.sum(axis=0)
-
-    ########################################################################
-    # Generate Predictions
-    ########################################################################
+        return e_x / e_x.sum(axis=0) # only difference
+    
+    
     LINES = []
-    LINES.append(','.join(['filename'] + classes))
-    predictions = []
-    for image_name in image_names:
-        probs = softmax(np.random.rand(45))
-        probs = list(map(str, probs))
-        LINES.append(",".join([image_name] + probs))
-
-        ########################################################################
-        # Register Prediction
-        #
-        # Note, this prediction register is not a requirement. It is used to
-        # provide you feedback of how far are you in the overall evaluation.
-        # In the absence of it, the evaluation will still work, but you
-        # will see progress of the evaluation as 0 until it is complete
-        #
-        # Here you simply announce that you completed processing a set of
-        # image_names
-        ########################################################################
-        aicrowd_helpers.execution_progress({
-            "image_names" : [image_name]
-        })
-
-
-    # Write output
-    fp = open(predictions_output_path, "w")
+    
+    with open('data/class_idx_mapping.csv') as f:
+    	classes = ['filename']
+    	for line in f.readlines()[1:]:
+    		class_name = line.split(",")[0]
+    		classes.append(class_name)
+    
+    LINES.append(','.join(classes))
+    
+    images_path = AICROWD_TEST_IMAGES_PATH + '/*.jpg'
+    for _file_path in glob.glob(images_path):
+    	probs = softmax(np.random.rand(45))
+    	probs = list(map(str, probs))
+    	LINES.append(",".join([os.path.basename(_file_path)] + probs))
+    
+    fp = open(AICROWD_PREDICTIONS_OUTPUT_PATH, "w")
     fp.write("\n".join(LINES))
     fp.close()
+
     ########################################################################
     # Register Prediction Complete
     ########################################################################
     aicrowd_helpers.execution_success({
         "predictions_output_path" : predictions_output_path
     })
+    
+    
 
 
 if __name__ == "__main__":
