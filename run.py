@@ -86,9 +86,6 @@ def run():
     import os
     import glob
     
-    #AICROWD_TEST_IMAGES_PATH = os.getenv('AICROWD_TEST_IMAGES_PATH', 'data/round1')
-    #AICROWD_PREDICTIONS_OUTPUT_PATH = os.getenv('AICROWD_PREDICTIONS_OUTPUT_PATH', 'random_prediction.csv')
-    
 
     from keras.models import load_model
     import efficientnet.keras as efn
