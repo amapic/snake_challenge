@@ -1,3 +1,3 @@
 #!/bin/bash
 
-python3 runprout.py
+python3 run.py
