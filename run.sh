@@ -1,3 +1,3 @@
 #!/bin/bash
 
-python3 run_old.py
+python3 run.py

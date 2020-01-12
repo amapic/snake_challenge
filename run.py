@@ -62,6 +62,7 @@ def run():
     ########################################################################
     # Register Prediction Start
     ########################################################################
+    import os
     aicrowd_helpers.execution_start()
     
     os.environ['AICROWD_TEST_IMAGES_PATH']='data/round1'
@@ -85,7 +86,7 @@ def run():
     import numpy as np
     import os
     import glob
-    
+    import keras
 
     from keras.models import load_model
     import efficientnet.keras as efn
@@ -120,7 +121,7 @@ def run():
     df_data.drop(['Classes','Folder'],axis=1,inplace=True)
 
     from keras.preprocessing.image import ImageDataGenerator
-    
+    IMAGE_SIZE=224
     valAug = ImageDataGenerator(rescale=1 / 255.0)
     pred_gen = valAug.flow_from_dataframe(df_data,
                                            x_col="Path",
@@ -133,10 +134,10 @@ def run():
     LINES = []
     
     with open('data/class_idx_mapping.csv') as f:
-    	classes = ['filename']
-    	for line in f.readlines()[1:]:
-    		class_name = line.split(",")[0]
-    		classes.append(class_name)
+        classes = ['filename']
+        for line in f.readlines()[1:]:
+            class_name = line.split(",")[0]
+            classes.append(class_name)
     
     LINES.append(','.join(classes))
     
@@ -153,7 +154,7 @@ def run():
     #	probs = softmax(np.random.rand(45))
     #	probs = list(map(str, probs))
     #	LINES.append(",".join([os.path.basename(_file_path)] + probs))
-    
+    AICROWD_PREDICTIONS_OUTPUT_PATH=os.environ['AICROWD_PREDICTIONS_OUTPUT_PATH']
     fp = open(AICROWD_PREDICTIONS_OUTPUT_PATH, "w")
     fp.write("\n".join(LINES))
     fp.close()
